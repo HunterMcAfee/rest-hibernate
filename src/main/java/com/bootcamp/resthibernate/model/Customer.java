@@ -1,22 +1,28 @@
 package com.bootcamp.resthibernate.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "customers")
+@SequenceGenerator(name = "customer", sequenceName = "customer_seq", initialValue = 1)
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
     private Store store;
 
     @Column(nullable = false)
@@ -42,6 +48,14 @@ public class Customer {
 
     public Long getId() {
         return id;
+    }
+
+    public Store getStore() {
+        return store;
+    }
+
+    public void setStore(Store store) {
+        this.store = store;
     }
 
     public String getFirstName() {

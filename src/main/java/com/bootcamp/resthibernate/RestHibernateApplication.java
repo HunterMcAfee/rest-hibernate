@@ -26,6 +26,9 @@ public class RestHibernateApplication {
 			Customer customer1 = new Customer("Jeff", "Bridges", "Tron");
 			Customer customer2 = new Customer("Jeff", "Goldblum", "Jurassic Park");
 			Customer customer3 = new Customer("Tommy", "Jones");
+			customer1.setStore(store1);
+			customer2.setStore(store1);
+			customer3.setStore(store1);
 			List<Customer> customers = new ArrayList<>();
 			customers.add(customer1);
 			customers.add(customer2);
