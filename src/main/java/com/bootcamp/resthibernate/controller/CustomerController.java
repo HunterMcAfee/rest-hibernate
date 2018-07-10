@@ -24,7 +24,12 @@ public class CustomerController {
         return customerRepository.findAll();
     }
 
-    @GetMapping("/{lastName}")
+    @GetMapping("/{id}")
+    public Customer getCustomerById(@PathVariable Long id) {
+        return customerRepository.findById(id).get();
+    }
+
+    @GetMapping("/lastname/{lastName}")
     public List<Customer> getCustomerByLastName(@PathVariable("lastName") String lastName) {
         return customerRepository.findByLastNameAllIgnoringCase(lastName);
     }
