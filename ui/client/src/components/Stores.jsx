@@ -14,9 +14,11 @@ class Stores extends Component {
     }
 
     _retrieveStores = async () => {
-        axios.get(`http://localhost:8080/stores/all`)
-            .then((stores) => {
-                console.log(stores);
+        axios.get(`http://localhost:3001/store/all`)
+            .then((res) => {
+                let newState = { ...this.state };
+                newState.stores = res.data;
+                this.setState(newState);
             })
             .catch((error) => {
                 console.log(`Error retrieving stores from API: ${error}`)
@@ -25,8 +27,19 @@ class Stores extends Component {
 
     render() {
         return (
-            <div>
-
+            <div className="row justify-content-center">
+                {this.state.stores.map((store, i) => {
+                    return (
+                        <div className="col-sm-3" key={i}>
+                            <div className="card" style={{ width: "18rem" }}>
+                                <div className="card-body">
+                                    <h5 className="card-title">{store.storeName}</h5>
+                                    <p className="card-text">{store.description}</p>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
         );
     }
