@@ -35,6 +35,11 @@ public class StoreController {
         }
     }
 
+    @GetMapping("/description/{description}")
+    public Store getStoresWithDescription(@PathVariable String description) {
+        return storeRepository.findByDescriptionContainsIgnoreCase(description);
+    }
+
     @GetMapping("/{id}/customers")
     public List<Customer> getCustomersByStore(@PathVariable("id") Long id) {
         if (storeRepository.findById(id).isPresent()) {

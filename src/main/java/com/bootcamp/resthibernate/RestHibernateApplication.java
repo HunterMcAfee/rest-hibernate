@@ -35,6 +35,20 @@ public class RestHibernateApplication {
 			customers.add(customer3);
 			store1.setCustomers(customers);
 			storeRepository.save(store1);
+
+			Store store2 = new Store("Walmart", "Retail");
+			Customer customer4 = new Customer("John", "Wayne", "Western");
+			Customer customer5 = new Customer("Clint", "Eastwood", "Dirty Harry");
+			Customer customer6 = new Customer("Peter", "Gregory");
+			customer4.setStore(store2);
+			customer5.setStore(store2);
+			customer6.setStore(store2);
+			List<Customer> customers2 = new ArrayList<>();
+			customers2.add(customer4);
+			customers2.add(customer5);
+			customers2.add(customer6);
+			store2.setCustomers(customers2);
+			storeRepository.save(store2);
 		};
 	}
  }
