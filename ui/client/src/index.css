@@ -18,8 +18,20 @@ body {
   display: inline-block;
 }
 
+.customers {
+  height: 80vh;
+  overflow-y: auto;
+}
+
+.fullBorderRight {
+  border-right: 1px solid rgb(0, 0, 0, 0.2);
+  height: calc(100vh - 4rem);
+  overflow-y: auto;
+  position: sticky;
+} 
+
 .searchComponent {
-  border-left: 1px solid rgb(192, 190, 190);
+  border-left: 1px solid rgb(0, 0, 0, 0.2);
   height: calc(100vh - 4rem);
   overflow-y: auto;
   position: sticky;
@@ -44,6 +56,11 @@ body {
 
 @media (max-width: 575.99px) { 
   .searchComponent {
+    border: none;
+    height: 100%;
+  }
+
+  .allStores {
     border: none;
     height: 100%;
   }

@@ -32,7 +32,7 @@ class Customers extends Component {
                     <div className="row justify-content-center">
                         <h2 className="text-center title">Customers</h2>
                     </div>
-                    <div className="row justify-content-center">
+                    <div className="row customers justify-content-center">
                         {this.state.customers.map((customer, i) => {
                             return (
                                 <div className="card col-sm-3 col-md-5" key={i} style={{ width: "18rem", height: "10rem" }}>
