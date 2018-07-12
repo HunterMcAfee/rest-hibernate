@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import AddCustomer from './AddCustomer';
 
 class Stores extends Component {
     constructor() {
@@ -37,7 +38,7 @@ class Stores extends Component {
 
     _changeStore = (event) => {
         let index = event.currentTarget.dataset.index;
-        this.setState({selectedStore: index})
+        this.setState({ selectedStore: index })
     }
 
     render() {
@@ -63,27 +64,29 @@ class Stores extends Component {
                 <div className="col-sm-6 customers fullBorderRight">
                     <div className="row justify-content-center">
                         <h3 className="title text-center">Customers for Store: {this.state.stores[this.state.selectedStore].storeName}</h3>
-                    </div> 
+                    </div>
                     <div className="row justify-content-center">
-                    {this.state.stores[this.state.selectedStore].customers.map((customer, i) => {
-                        return (
-                            <div className="card col-sm-4" key={i} style={{ width: "18rem", height: "10rem" }}>
-                                <div className="card-body">
-                                    <h6 className="card-title">
-                                        First Name: {customer.firstName}
-                                        <br />
-                                        Last Name: {customer.lastName}
-                                    </h6>
-                                    <p className="card-text">{customer.bio}</p>
+                        {this.state.stores[this.state.selectedStore].customers.map((customer, i) => {
+                            return (
+                                <div className="card col-sm-4" key={i} style={{ width: "18rem", height: "10rem" }}>
+                                    <div className="card-body">
+                                        <h6 className="card-title">
+                                            First Name: {customer.firstName}
+                                            <br />
+                                            Last Name: {customer.lastName}
+                                        </h6>
+                                        <p className="card-text">{customer.bio}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        )
-                    })}
+                            )
+                        })}
                     </div>
                 </div>
-                <div>
-
-
+                <div className="col-sm-3">
+                    <div className="row justify-content-center">
+                        <h3 className="title text-center">Add Customer:</h3>
+                    </div>
+                    <AddCustomer selectedStore={this.state.selectedStore} />
                 </div>
             </div>
         );
