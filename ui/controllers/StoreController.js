@@ -12,9 +12,16 @@ router.get('/all', (req, res) => {
         })
 });
 
-// router.get('/{id}', (req, res) => {
-
-// });
+router.post('/:id/addCustomer', (req, res) => {
+    console.log(req.body);
+    axios.post(`http://localhost:8080/store/${req.params.id}/addCustomer`, req.body)
+        .then((apiResponse) => {
+            res.json("Customer added to store.");
+        })
+        .catch((error) => {
+            console.log(`Error adding customer to store: ${error}`);
+        })
+});
 
 // router.get("/lastname/{lastName}", (req, res) => {
 

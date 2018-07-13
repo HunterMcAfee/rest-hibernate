@@ -46,7 +46,7 @@ class Stores extends Component {
             <div className="row">
                 <div className="col-sm-3 fullBorderRight">
                     <div className="row justify-content-center text-center">
-                        <h3 className="title">Stores</h3>
+                        <h3 className="col-sm-10 title">Stores</h3>
                     </div>
                     <div className="row justify-content-center">
                         {this.state.stores.map((store, i) => {
@@ -63,7 +63,7 @@ class Stores extends Component {
                 </div>
                 <div className="col-sm-6 customers fullBorderRight">
                     <div className="row justify-content-center">
-                        <h3 className="title text-center">Customers for Store: {this.state.stores[this.state.selectedStore].storeName}</h3>
+                        <h3 className="col-sm-9 title text-center">Customers for Store: {this.state.stores[this.state.selectedStore].storeName}</h3>
                     </div>
                     <div className="row justify-content-center">
                         {this.state.stores[this.state.selectedStore].customers.map((customer, i) => {
@@ -84,9 +84,9 @@ class Stores extends Component {
                 </div>
                 <div className="col-sm-3">
                     <div className="row justify-content-center">
-                        <h3 className="title text-center">Add Customer:</h3>
+                        <h3 className="title col-sm-10 text-center">Add Customer:</h3>
                     </div>
-                    <AddCustomer selectedStore={this.state.selectedStore} />
+                    <AddCustomer _fetchStores={this._fetchStores} store={this.state.stores[this.state.selectedStore]} />
                 </div>
             </div>
         );

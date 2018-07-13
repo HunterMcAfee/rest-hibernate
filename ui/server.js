@@ -1,8 +1,12 @@
 const express = require('express');
 const CustomerController = require('./controllers/CustomerController');
 const StoreController = require('./controllers/StoreController');
+const bodyParser = require('body-parser');
 
 const app = express();
+
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");

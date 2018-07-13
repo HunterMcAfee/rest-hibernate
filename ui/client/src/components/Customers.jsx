@@ -30,7 +30,7 @@ class Customers extends Component {
             <div className="row">
                 <div className="col-sm-7 justify-content-center">
                     <div className="row justify-content-center">
-                        <h2 className="text-center title">Customers</h2>
+                        <h2 className="col-sm-10 text-center title">Customers</h2>
                     </div>
                     <div className="row customers justify-content-center">
                         {this.state.customers.map((customer, i) => {
